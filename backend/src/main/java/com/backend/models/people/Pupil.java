@@ -10,7 +10,7 @@ public class Pupil extends Person {
     private String house;
     private ArrayList<Book> books;
 
-    public Pupil(String name, String species, String bloodStatus, int year, int month, int day, Wand wand, String patronus, String house) {
+    public Pupil(String name, String species, String bloodStatus, int year, int month, int day, String house, Wand wand, String patronus) {
         super(name, species,bloodStatus, year, month, day, wand, patronus);
         this.house = house;
         this.books = new ArrayList<>();
