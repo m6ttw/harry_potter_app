@@ -72,5 +72,11 @@ public class Person {
         this.pets = pets;
     }
 
+    public void addPet(Creature pet){
+        pets.add(pet);
+    }
 
+    public void removePet(Creature pet){
+        pets.remove(pet);
+    }
 }
