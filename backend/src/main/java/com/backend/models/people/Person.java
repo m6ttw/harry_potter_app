@@ -1,25 +1,27 @@
 package com.backend.models.people;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
+import com.backend.models.creatures.Creature;
 import com.backend.models.items.Wand;
 
 public class Person {
 
     private String name;
-    private String species;
     private String bloodStatus;
     private LocalDate birthday;
     private Wand wand;
     private String patronus;
+    private ArrayList<Creature> pets;
 
-    public Person(String name, String species, String bloodStatus, int year, int month, int day, Wand wand, String patronus) {
+    public Person(String name, String bloodStatus, int year, int month, int day, Wand wand, String patronus) {
         this.name = name;
-        this.species = species;
         this.bloodStatus = bloodStatus;
         this.birthday = LocalDate.of(year, month, day);
         this.wand = wand;
         this.patronus = patronus;
+        this.pets = new ArrayList<>();
     }
 
     public String getName() {
@@ -28,14 +30,6 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(String species) {
-        this.species = species;
     }
 
     public String getBloodStatus() {
@@ -69,4 +63,14 @@ public class Person {
     public void setPatronus(String patronus) {
         this.patronus = patronus;
     }
+
+    public ArrayList<Creature> getPets() {
+        return pets;
+    }
+
+    public void setPets(ArrayList<Creature> pets) {
+        this.pets = pets;
+    }
+
+
 }

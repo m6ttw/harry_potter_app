@@ -7,8 +7,8 @@ public class OtherPerson extends Person
 
     private String occupation;
 
-    public OtherPerson(String name, String species, String bloodStatus, int year, int month, int day, String occupation, Wand wand, String patronus) {
-        super(name, species, bloodStatus, year, month, day, wand, patronus);
+    public OtherPerson(String name, String bloodStatus, int year, int month, int day, String occupation, Wand wand, String patronus) {
+        super(name, bloodStatus, year, month, day, wand, patronus);
         this.occupation = occupation;
     }
 
