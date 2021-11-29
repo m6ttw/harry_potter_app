@@ -2,6 +2,8 @@ package com.backend.models.people;
 
 import java.time.LocalDate;
 
+import com.backend.models.items.Wand;
+
 public class Person {
 
     private String name;
