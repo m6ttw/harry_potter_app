@@ -1,5 +1,6 @@
 package com.backend.models.people;
 
+import com.backend.models.Birthday;
 import com.backend.models.items.Book;
 import com.backend.models.items.Wand;
 
@@ -10,11 +11,13 @@ public class Pupil extends Person {
     private String house;
     private ArrayList<Book> books;
 
-    public Pupil(String name, String bloodStatus, int year, int month, int day, String house, Wand wand, String patronus) {
-        super(name, bloodStatus, year, month, day, wand, patronus);
+    public Pupil(String firstName, String lastName, String bloodStatus, Birthday birthday, String house, Wand wand, String patronus) {
+        super(firstName, lastName, bloodStatus, birthday, wand, patronus);
         this.house = house;
         this.books = new ArrayList<>();
     }
+
+    public Pupil(){}
 
     public String getHouse() {
         return house;

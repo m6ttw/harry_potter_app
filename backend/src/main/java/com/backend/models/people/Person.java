@@ -1,35 +1,63 @@
 package com.backend.models.people;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
+import com.backend.models.Birthday;
 import com.backend.models.creatures.Creature;
 import com.backend.models.items.Wand;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "persons")
 public class Person {
 
-    private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "name")
+    private String firstName;
+    private String lastName;
     private String bloodStatus;
-    private LocalDate birthday;
+    private Birthday birthday;
     private Wand wand;
     private String patronus;
     private ArrayList<Creature> pets;
 
-    public Person(String name, String bloodStatus, int year, int month, int day, Wand wand, String patronus) {
-        this.name = name;
+    public Person(String firstName, String lastName, String bloodStatus, Birthday birthday, Wand wand, String patronus) {
+        this.firstName = firstName;
         this.bloodStatus = bloodStatus;
-        this.birthday = LocalDate.of(year, month, day);
+        this.birthday = birthday;
         this.wand = wand;
         this.patronus = patronus;
         this.pets = new ArrayList<>();
     }
 
-    public String getName() {
-        return name;
+    public Person(){}
+
+    public long getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getBloodStatus() {
@@ -40,11 +68,11 @@ public class Person {
         this.bloodStatus = bloodStatus;
     }
 
-    public LocalDate getBirthday() {
+    public Birthday getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(Birthday birthday) {
         this.birthday = birthday;
     }
 
