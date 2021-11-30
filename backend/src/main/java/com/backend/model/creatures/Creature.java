@@ -1,4 +1,4 @@
-package com.backend.models.creatures;
+package com.backend.model.creatures;
 
 public class Creature {
 

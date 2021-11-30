@@ -1,9 +1,9 @@
 package com.backend.tests;
 
-import com.backend.models.Birthday;
-import com.backend.models.items.Book;
-import com.backend.models.items.Wand;
-import com.backend.models.people.Pupil;
+import com.backend.model.Birthday;
+import com.backend.model.items.Book;
+import com.backend.model.items.Wand;
+import com.backend.model.people.Pupil;
 import org.junit.Before;
 import org.junit.Test;
 

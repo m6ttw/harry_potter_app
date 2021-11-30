@@ -1,7 +1,7 @@
-package com.backend.models.people;
+package com.backend.model.people;
 
-import com.backend.models.Birthday;
-import com.backend.models.items.Wand;
+import com.backend.model.Birthday;
+import com.backend.model.items.Wand;
 
 public class Teacher extends Person {
 

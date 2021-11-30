@@ -1,4 +1,4 @@
-package com.backend.models.items;
+package com.backend.model.items;
 
 public class Book {
 

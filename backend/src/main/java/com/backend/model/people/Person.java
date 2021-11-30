@@ -1,10 +1,10 @@
-package com.backend.models.people;
+package com.backend.model.people;
 
 import java.util.ArrayList;
 
-import com.backend.models.Birthday;
-import com.backend.models.creatures.Creature;
-import com.backend.models.items.Wand;
+import com.backend.model.Birthday;
+import com.backend.model.creatures.Creature;
+import com.backend.model.items.Wand;
 
 import javax.persistence.*;
 
@@ -16,17 +16,30 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "name")
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "blood_status")
     private String bloodStatus;
+
+    @Column(name = "birthday")
     private Birthday birthday;
+
+    @Column(name = "wand")
     private Wand wand;
+
+    @Column(name = "patronus")
     private String patronus;
+
+    @Column(name = "pets")
     private ArrayList<Creature> pets;
 
     public Person(String firstName, String lastName, String bloodStatus, Birthday birthday, Wand wand, String patronus) {
         this.firstName = firstName;
+        this.lastName = lastName;
         this.bloodStatus = bloodStatus;
         this.birthday = birthday;
         this.wand = wand;
