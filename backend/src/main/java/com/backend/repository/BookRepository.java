@@ -1,9 +1,9 @@
 package com.backend.repository;
 
-import com.backend.model.people.Person;
+import com.backend.model.items.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PersonRepository extends JpaRepository<Person, Long> {
+public interface BookRepository extends JpaRepository<Book, Long> {
 }

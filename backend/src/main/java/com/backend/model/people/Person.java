@@ -1,16 +1,18 @@
 package com.backend.model.people;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.List;
 
 import com.backend.model.Birthday;
-import com.backend.model.creatures.Creature;
+import com.backend.model.creatures.Pet;
 import com.backend.model.items.Wand;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "persons")
-public class Person {
+public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,17 +27,22 @@ public class Person {
     @Column(name = "blood_status")
     private String bloodStatus;
 
-    @Column(name = "birthday")
+    @JsonIgnoreProperties(value="person")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "birthday_id", referencedColumnName = "id")
     private Birthday birthday;
 
-    @Column(name = "wand")
+    @JsonIgnoreProperties(value = "person")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "wand_id", referencedColumnName = "id")
     private Wand wand;
 
     @Column(name = "patronus")
     private String patronus;
 
-    @Column(name = "pets")
-    private ArrayList<Creature> pets;
+    @JsonIgnoreProperties(value = "person")
+    @OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
+    private List<Pet> pets;
 
     public Person(String firstName, String lastName, String bloodStatus, Birthday birthday, Wand wand, String patronus) {
         this.firstName = firstName;
@@ -44,7 +51,6 @@ public class Person {
         this.birthday = birthday;
         this.wand = wand;
         this.patronus = patronus;
-        this.pets = new ArrayList<>();
     }
 
     public Person(){}
@@ -105,19 +111,19 @@ public class Person {
         this.patronus = patronus;
     }
 
-    public ArrayList<Creature> getPets() {
+    public List<Pet> getPets() {
         return pets;
     }
 
-    public void setPets(ArrayList<Creature> pets) {
+    public void setPets(List<Pet> pets) {
         this.pets = pets;
     }
 
-    public void addPet(Creature pet){
+    public void addPet(Pet pet){
         pets.add(pet);
     }
 
-    public void removePet(Creature pet){
+    public void removePet(Pet pet){
         pets.remove(pet);
     }
 }

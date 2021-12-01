@@ -12,6 +12,8 @@ public class HouseElf {
         this.isFree = isFree;
     }
 
+    public HouseElf(){}
+
     public String getName() {
         return name;
     }

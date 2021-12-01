@@ -3,18 +3,30 @@ package com.backend.model.people;
 import com.backend.model.Birthday;
 import com.backend.model.items.Book;
 import com.backend.model.items.Wand;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.ArrayList;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
-public class Pupil extends Person {
+@Entity
+@Table(name = "pupils")
+public class Pupil extends Person implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "house")
     private String house;
-    private ArrayList<Book> books;
+
+    @JsonIgnoreProperties(value = "pupil")
+    @OneToMany(mappedBy = "pupil", fetch = FetchType.LAZY)
+    private List<Book> books;
 
     public Pupil(String firstName, String lastName, String bloodStatus, Birthday birthday, String house, Wand wand, String patronus) {
         super(firstName, lastName, bloodStatus, birthday, wand, patronus);
         this.house = house;
-        this.books = new ArrayList<>();
     }
 
     public Pupil(){}
@@ -27,11 +39,11 @@ public class Pupil extends Person {
         this.house = house;
     }
 
-    public ArrayList<Book> getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(ArrayList<Book> books) {
+    public void setBooks(List<Book> books) {
         this.books = books;
     }
 

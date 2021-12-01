@@ -1,14 +1,16 @@
 package com.backend.model.creatures;
 
-public class Creature {
+public class WildCreature {
 
     private String name;
     private String species;
 
-    public Creature(String name, String species) {
+    public WildCreature(String name, String species) {
         this.name = name;
         this.species = species;
     }
+
+    public WildCreature(){}
 
     public String getName() {
         return name;
