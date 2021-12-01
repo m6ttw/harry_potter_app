@@ -31,6 +31,16 @@ public class Pupil extends Person implements Serializable {
 
     public Pupil(){}
 
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getHouse() {
         return house;
     }
