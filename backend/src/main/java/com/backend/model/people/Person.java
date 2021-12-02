@@ -12,7 +12,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "persons")
+//@Table(name = "persons")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Person implements Serializable {
 
     @Id
