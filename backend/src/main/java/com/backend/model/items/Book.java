@@ -22,9 +22,10 @@ public class Book {
     @JoinColumn(name = "pupil_id", nullable = false)
     private Pupil pupil;
 
-    public Book(String title, String author) {
+    public Book(String title, String author, Pupil pupil) {
         this.title = title;
         this.author = author;
+        this.pupil = pupil;
     }
 
     public Book(){}

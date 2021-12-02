@@ -1,10 +1,11 @@
 package com.backend.model.people;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.backend.model.Birthday;
-import com.backend.model.creatures.Pet;
+import com.backend.model.creatures.Creature;
 import com.backend.model.items.Wand;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -42,7 +43,7 @@ public class Person implements Serializable {
 
     @JsonIgnoreProperties(value = "person")
     @OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
-    private List<Pet> pets;
+    private List<Creature> pets;
 
     public Person(String firstName, String lastName, String bloodStatus, Birthday birthday, Wand wand, String patronus) {
         this.firstName = firstName;
@@ -51,6 +52,7 @@ public class Person implements Serializable {
         this.birthday = birthday;
         this.wand = wand;
         this.patronus = patronus;
+        this.pets = new ArrayList<>();
     }
 
     public Person(){}
@@ -111,19 +113,19 @@ public class Person implements Serializable {
         this.patronus = patronus;
     }
 
-    public List<Pet> getPets() {
+    public List<Creature> getPets() {
         return pets;
     }
 
-    public void setPets(List<Pet> pets) {
+    public void setPets(List<Creature> pets) {
         this.pets = pets;
     }
 
-    public void addPet(Pet pet){
-        pets.add(pet);
+    public void addPet(Creature pet){
+        this.pets.add(pet);
     }
 
-    public void removePet(Pet pet){
-        pets.remove(pet);
+    public void removePet(Creature pet){
+        this.pets.remove(pet);
     }
 }

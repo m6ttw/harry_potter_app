@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,6 +28,7 @@ public class Pupil extends Person implements Serializable {
     public Pupil(String firstName, String lastName, String bloodStatus, Birthday birthday, String house, Wand wand, String patronus) {
         super(firstName, lastName, bloodStatus, birthday, wand, patronus);
         this.house = house;
+        this.books = new ArrayList<>();
     }
 
     public Pupil(){}
@@ -62,6 +64,6 @@ public class Pupil extends Person implements Serializable {
     }
 
     public void removeBook(Book book){
-        books.remove(book);
+        books.add(book);
     }
 }

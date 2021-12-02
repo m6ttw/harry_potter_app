@@ -22,8 +22,8 @@ public class PupilTest {
         harryWand = new Wand("phoenix feather", "holly", 11.00);
         harryBirthday = new Birthday(1980, 07, 31);
         harryPotter = new Pupil("Harry", "Potter", "half-blood", harryBirthday, "Gryffindor", harryWand, "stag");
-        hogwartsAHistory = new Book("Hogwarts: A History", "Bathilda Bagshot");
-        historyOfMagic = new Book("A History of Magic", "Bathilda Bagshot");
+        hogwartsAHistory = new Book("Hogwarts: A History", "Bathilda Bagshot", harryPotter);
+        historyOfMagic = new Book("A History of Magic", "Bathilda Bagshot", harryPotter);
     }
 
     @Test

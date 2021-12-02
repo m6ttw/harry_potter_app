@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "pets")
-public class Pet {
+public class Creature {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,12 +22,13 @@ public class Pet {
     @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
-    public Pet(String name, String species) {
+    public Creature(String name, String species, Person person) {
         this.name = name;
         this.species = species;
+        this.person = person;
     }
 
-    public Pet(){}
+    public Creature(){}
 
     public long getId() {
         return id;
