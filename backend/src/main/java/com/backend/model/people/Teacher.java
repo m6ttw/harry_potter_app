@@ -3,8 +3,18 @@ package com.backend.model.people;
 import com.backend.model.Birthday;
 import com.backend.model.items.Wand;
 
-public class Teacher extends Person {
+import javax.persistence.*;
+import java.io.Serializable;
 
+@Entity
+@Table(name = "teachers")
+public class Teacher extends Person implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "subject")
     private String subject;
 
     public Teacher(String firstName, String lastName, String bloodStatus, Birthday birthday, String subject, Wand wand, String patronus) {
@@ -13,6 +23,16 @@ public class Teacher extends Person {
     }
 
     public Teacher(){}
+
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getSubject() {
         return subject;
