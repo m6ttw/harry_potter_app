@@ -67,5 +67,21 @@ public class DataLoader implements ApplicationRunner {
 
         OtherPerson hagrid = new OtherPerson("Rubeus", "Hagrid", "half-giant", new Birthday(1928, 12,6), "gamekeeper", new Wand("unknown", "oak", 16.00), "none");
         otherPersonRepository.save(hagrid);
+        Creature aragog = new Creature("Aragog", "acromantula", hagrid);
+        creatureRepository.save(aragog);
+        Creature fang = new Creature("Fang", "dog", hagrid);
+        creatureRepository.save(fang);
+        Creature fluffy = new Creature("Fluffy", "Giant three-headed dog", hagrid);
+        creatureRepository.save(fluffy);
+        Creature norbert = new Creature("Norbert", "Norwegian Ridgeback dragon", hagrid);
+        creatureRepository.save(norbert);
+        Creature buckbeak = new Creature("Buckbeak", "hippogriff", hagrid);
+        creatureRepository.save(buckbeak);
+        hagrid.addPet(aragog);
+        hagrid.addPet(fang);
+        hagrid.addPet(fluffy);
+        hagrid.addPet(norbert);
+        hagrid.addPet(buckbeak);
+        otherPersonRepository.save(hagrid);
     }
 }
