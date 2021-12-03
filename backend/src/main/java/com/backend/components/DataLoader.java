@@ -2,12 +2,10 @@ package com.backend.components;
 
 import com.backend.model.Birthday;
 import com.backend.model.creatures.Creature;
-import com.backend.model.items.Book;
-import com.backend.model.items.Wand;
-import com.backend.model.people.OtherPerson;
-import com.backend.model.people.Pupil;
-import com.backend.model.people.Teacher;
+import com.backend.model.items.*;
+import com.backend.model.people.*;
 import com.backend.repository.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

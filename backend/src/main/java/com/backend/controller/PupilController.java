@@ -2,6 +2,7 @@ package com.backend.controller;
 
 import com.backend.model.people.Pupil;
 import com.backend.repository.PupilRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
