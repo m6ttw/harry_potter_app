@@ -1,5 +1,6 @@
 package com.backend.controller;
 
+import com.backend.exceptions.NotFoundException;
 import com.backend.model.people.Pupil;
 import com.backend.repository.PupilRepository;
 
@@ -36,4 +37,15 @@ public class PupilController {
     public ResponseEntity getPupil(@PathVariable long id) {
         return new ResponseEntity<>(pupilRepository.findById(id), HttpStatus.OK);
     }
+
+//    @GetMapping("/pupils/{id}")
+//    public ResponseEntity getPupil(@PathVariable long id) {
+//        try {
+//            return new ResponseEntity<>(pupilRepository.findById(id), HttpStatus.OK);
+//        } catch(NotFoundException exception) {
+//            throw new ResponseStatusException(
+//                    HttpStatus.NOT_FOUND, "Entity not found", exception
+//            );
+//        }
+//    }
 }
