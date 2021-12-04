@@ -34,18 +34,7 @@ public class PupilController {
     }
 
     @GetMapping("/pupils/{id}")
-    public ResponseEntity getPupil(@PathVariable long id) {
+    public ResponseEntity getPupil(@PathVariable long id){
         return new ResponseEntity<>(pupilRepository.findById(id), HttpStatus.OK);
     }
-
-//    @GetMapping("/pupils/{id}")
-//    public ResponseEntity getPupil(@PathVariable long id) {
-//        try {
-//            return new ResponseEntity<>(pupilRepository.findById(id), HttpStatus.OK);
-//        } catch(NotFoundException exception) {
-//            throw new ResponseStatusException(
-//                    HttpStatus.NOT_FOUND, "Entity not found", exception
-//            );
-//        }
-//    }
 }
