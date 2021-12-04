@@ -1,8 +1,7 @@
 package com.backend.controller;
 
-import com.backend.model.people.Teacher;
-import com.backend.repository.TeacherRepository;
-
+import com.backend.model.creatures.Creature;
+import com.backend.repository.CreatureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +13,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/")
-public class TeacherController {
+public class CreatureController {
 
     @Autowired
-    private TeacherRepository teacherRepository;
+    CreatureRepository creatureRepository;
 
-    @GetMapping(value = "/teachers")
-    public ResponseEntity<List<Teacher>> getAllTeachers(){
-        return new ResponseEntity<>(teacherRepository.findAll(), HttpStatus.OK);
+    @GetMapping
+    public ResponseEntity<List<Creature>> getAllCreatures() {
+        return new ResponseEntity<>(creatureRepository.findAll(), HttpStatus.OK);
     }
+    
 }
