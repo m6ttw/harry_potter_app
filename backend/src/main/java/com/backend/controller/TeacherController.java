@@ -6,9 +6,7 @@ import com.backend.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +20,11 @@ public class TeacherController {
     @GetMapping(value = "/teachers")
     public ResponseEntity<List<Teacher>> getAllTeachers(){
         return new ResponseEntity<>(teacherRepository.findAll(), HttpStatus.OK);
+    }
+
+    @PostMapping("/teachers")
+    public ResponseEntity<Teacher> createTeacher(@RequestBody Teacher teacher){
+        teacherRepository.save(teacher);
+        return new ResponseEntity<>(teacher, HttpStatus.CREATED);
     }
 }
