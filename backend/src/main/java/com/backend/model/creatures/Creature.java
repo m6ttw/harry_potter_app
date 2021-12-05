@@ -1,11 +1,13 @@
 package com.backend.model.creatures;
 
 import com.backend.model.people.Person;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "pets")
+@Table(name = "creatures")
 public class Creature {
 
     @Id
@@ -20,6 +22,7 @@ public class Creature {
 
     @ManyToOne
     @JoinColumn(name = "person_id", nullable = false)
+    @JsonIgnoreProperties("creatures")
     private Person person;
 
     public Creature(String name, String species, Person person) {
@@ -54,6 +57,7 @@ public class Creature {
         this.species = species;
     }
 
+    @JsonIgnore
     public Person getPerson() {
         return person;
     }

@@ -57,7 +57,7 @@ public class DataLoader implements ApplicationRunner {
         hermioneGrainger.addBook(historyOfMagic);
         pupilRepository.save(hermioneGrainger);
 
-        Teacher albusDumbledore = new Teacher("Albus", "Dumbledore", "half-blood", new Birthday(1881, 8, 0), "Headmaster", new Wand("thestral hair", "elder", 15.00), "phoenix");
+        Teacher albusDumbledore = new Teacher("Albus", "Dumbledore", "half-blood", new Birthday(1881, 8, 27), "Headmaster", new Wand("thestral hair", "elder", 15.00), "phoenix");
         teacherRepository.save(albusDumbledore);
 
         Teacher minervaMcGonagall = new Teacher("Minerva", "McGonagall", "half-blood", new Birthday(1935, 10, 4), "Transfiguration", new Wand("dragon heartstring", "fir", 9.5), "cat");

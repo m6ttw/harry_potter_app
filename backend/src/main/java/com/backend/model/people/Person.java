@@ -42,8 +42,8 @@ public class Person implements Serializable {
     @Column(name = "patronus")
     private String patronus;
 
-    @JsonIgnoreProperties(value = "person")
     @OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = "person")
     private List<Creature> pets;
 
     public Person(String firstName, String lastName, String bloodStatus, Birthday birthday, Wand wand, String patronus) {
