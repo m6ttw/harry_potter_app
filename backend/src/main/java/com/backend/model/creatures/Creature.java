@@ -33,7 +33,6 @@ public class Creature {
 
     public Creature(){}
 
-    @JsonIgnore
     public long getId() {
         return id;
     }
