@@ -73,13 +73,10 @@ public class DataLoader implements ApplicationRunner {
         creatureRepository.save(fluffy);
         Creature norbert = new Creature("Norbert", "Norwegian Ridgeback dragon", hagrid);
         creatureRepository.save(norbert);
-        Creature buckbeak = new Creature("Buckbeak", "hippogriff", hagrid);
-        creatureRepository.save(buckbeak);
         hagrid.addPet(aragog);
         hagrid.addPet(fang);
         hagrid.addPet(fluffy);
         hagrid.addPet(norbert);
-        hagrid.addPet(buckbeak);
         otherPersonRepository.save(hagrid);
     }
 }
