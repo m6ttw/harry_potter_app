@@ -7,6 +7,7 @@ import java.util.List;
 import com.backend.model.Birthday;
 import com.backend.model.creatures.Creature;
 import com.backend.model.items.Wand;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -58,6 +59,7 @@ public class Person implements Serializable {
 
     public Person(){}
 
+    @JsonIgnore
     public long getId() {
         return id;
     }

@@ -3,6 +3,7 @@ package com.backend.model.people;
 import com.backend.model.Birthday;
 import com.backend.model.items.Book;
 import com.backend.model.items.Wand;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -33,6 +34,7 @@ public class Pupil extends Person implements Serializable {
 
     public Pupil(){}
 
+    @JsonIgnore
     @Override
     public long getId() {
         return id;

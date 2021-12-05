@@ -33,6 +33,7 @@ public class Creature {
 
     public Creature(){}
 
+    @JsonIgnore
     public long getId() {
         return id;
     }
@@ -57,7 +58,7 @@ public class Creature {
         this.species = species;
     }
 
-//    @JsonIgnore
+    @JsonIgnore
     public Person getPerson() {
         return person;
     }

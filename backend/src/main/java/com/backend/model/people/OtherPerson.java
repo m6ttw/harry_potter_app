@@ -2,6 +2,7 @@ package com.backend.model.people;
 
 import com.backend.model.Birthday;
 import com.backend.model.items.Wand;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -25,6 +26,7 @@ public class OtherPerson extends Person implements Serializable
 
     public OtherPerson(){}
 
+    @JsonIgnore
     @Override
     public long getId() {
         return id;

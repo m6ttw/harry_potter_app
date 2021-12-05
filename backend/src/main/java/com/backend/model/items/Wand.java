@@ -1,6 +1,7 @@
 package com.backend.model.items;
 
 import com.backend.model.people.Person;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -32,6 +33,7 @@ public class Wand {
 
     public Wand(){}
 
+    @JsonIgnore
     public long getId() {
         return id;
     }

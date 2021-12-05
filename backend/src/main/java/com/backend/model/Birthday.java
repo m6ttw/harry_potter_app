@@ -1,6 +1,7 @@
 package com.backend.model;
 
 import com.backend.model.people.Person;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,18 +14,19 @@ public class Birthday {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "birthday")
-    private LocalDate birthday;
+    @Column(name = "date")
+    private LocalDate date;
 
     @OneToOne(mappedBy = "birthday")
     private Person person;
 
     public Birthday(int year, int month, int day) {
-        this.birthday = LocalDate.of(year, month, day);
+        this.date = LocalDate.of(year, month, day);
     }
 
     public Birthday(){}
 
+    @JsonIgnore
     public long getId() {
         return id;
     }
@@ -33,12 +35,12 @@ public class Birthday {
         this.id = id;
     }
 
-    public LocalDate getBirthday() {
-        return birthday;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public Person getPerson() {
