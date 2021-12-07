@@ -22,9 +22,20 @@ public class OtherPersonController {
         return new ResponseEntity<>(otherPersonRepository.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/otherpersons/{id}")
+    public ResponseEntity getOtherPerson(@PathVariable long id){
+        return new ResponseEntity<>(otherPersonRepository.findById(id), HttpStatus.OK);
+    }
+
     @PostMapping("/otherpersons")
     public ResponseEntity<OtherPerson> createOtherPerson(@RequestBody OtherPerson otherPerson){
         otherPersonRepository.save(otherPerson);
         return new ResponseEntity<>(otherPerson, HttpStatus.CREATED);
+    }
+
+    @PatchMapping("/otherpersons/{id}")
+    public ResponseEntity<OtherPerson> updateOtherPerson(@RequestBody OtherPerson otherPerson){
+        otherPersonRepository.save(otherPerson);
+        return new ResponseEntity<>(otherPerson, HttpStatus.OK);
     }
 }
