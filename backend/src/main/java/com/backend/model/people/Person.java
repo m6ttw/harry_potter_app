@@ -59,7 +59,7 @@ public class Person implements Serializable {
 
     public Person(){}
 
-    @JsonIgnore
+//    @JsonIgnore
     public long getId() {
         return id;
     }

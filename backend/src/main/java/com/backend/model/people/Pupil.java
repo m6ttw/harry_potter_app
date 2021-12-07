@@ -34,7 +34,7 @@ public class Pupil extends Person implements Serializable {
 
     public Pupil(){}
 
-    @JsonIgnore
+//    @JsonIgnore
     @Override
     public long getId() {
         return id;

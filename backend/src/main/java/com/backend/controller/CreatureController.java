@@ -32,4 +32,10 @@ public class CreatureController {
         return new ResponseEntity<>(creature, HttpStatus.CREATED);
      }
 
+     @PatchMapping("/creatures/{id}")
+     public ResponseEntity<Creature> updateCreature(@RequestBody Creature creature){
+        creatureRepository.save(creature);
+        return new ResponseEntity<>(creature, HttpStatus.OK);
+     }
+
 }

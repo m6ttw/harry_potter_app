@@ -57,7 +57,7 @@ public class Creature {
         this.species = species;
     }
 
-    @JsonIgnore
+//    @JsonIgnore
     public Person getPerson() {
         return person;
     }
