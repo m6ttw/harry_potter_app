@@ -17,9 +17,14 @@ public class TeacherController {
     @Autowired
     private TeacherRepository teacherRepository;
 
-    @GetMapping(value = "/teachers")
+    @GetMapping("/teachers")
     public ResponseEntity<List<Teacher>> getAllTeachers(){
         return new ResponseEntity<>(teacherRepository.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/teachers/{id}")
+    public ResponseEntity getTeacher(@PathVariable long id){
+        return new ResponseEntity(teacherRepository.findById(id), HttpStatus.OK);
     }
 
     @PostMapping("/teachers")

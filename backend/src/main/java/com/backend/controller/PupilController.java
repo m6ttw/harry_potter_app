@@ -1,6 +1,5 @@
 package com.backend.controller;
 
-import com.backend.exceptions.NotFoundException;
 import com.backend.model.people.Pupil;
 import com.backend.repository.PupilRepository;
 
@@ -8,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("api/")
@@ -39,5 +36,11 @@ public class PupilController {
     public ResponseEntity<Pupil> createPupil(@RequestBody Pupil pupil){
         pupilRepository.save(pupil);
         return new ResponseEntity<>(pupil, HttpStatus.CREATED);
+    }
+
+    @PatchMapping("/pupils/{id}")
+    public ResponseEntity<Pupil> updatePupil(@RequestBody Pupil pupil){
+        pupilRepository.save(pupil);
+        return new ResponseEntity<>(pupil, HttpStatus.OK);
     }
 }

@@ -17,7 +17,7 @@ public class OtherPersonController {
     @Autowired
     private OtherPersonRepository otherPersonRepository;
 
-    @GetMapping(value = "/otherpersons")
+    @GetMapping("/otherpersons")
     public ResponseEntity<List<OtherPerson>> getAllOtherPersons(){
         return new ResponseEntity<>(otherPersonRepository.findAll(), HttpStatus.OK);
     }
