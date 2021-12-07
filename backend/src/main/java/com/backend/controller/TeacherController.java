@@ -32,4 +32,11 @@ public class TeacherController {
         teacherRepository.save(teacher);
         return new ResponseEntity<>(teacher, HttpStatus.CREATED);
     }
+
+    @PatchMapping("/teachers/{id}")
+    public ResponseEntity<Teacher> updateTeacher(@RequestBody Teacher teacher){
+        teacherRepository.save(teacher);
+        return new ResponseEntity<>(teacher, HttpStatus.OK);
+    }
+
 }
