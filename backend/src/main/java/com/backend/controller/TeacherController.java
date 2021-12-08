@@ -38,5 +38,4 @@ public class TeacherController {
         teacherRepository.save(teacher);
         return new ResponseEntity<>(teacher, HttpStatus.OK);
     }
-
 }
