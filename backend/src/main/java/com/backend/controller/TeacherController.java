@@ -9,33 +9,35 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("api/")
+@RequestMapping("api/teachers/")
 public class TeacherController {
 
     @Autowired
     private TeacherRepository teacherRepository;
 
-    @GetMapping("/teachers")
+    @GetMapping("/")
     public ResponseEntity<List<Teacher>> getAllTeachers(){
         return new ResponseEntity<>(teacherRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/teachers/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity getTeacher(@PathVariable long id){
         return new ResponseEntity(teacherRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping("/teachers")
+    @PostMapping("/")
     public ResponseEntity<Teacher> createTeacher(@RequestBody Teacher teacher){
         teacherRepository.save(teacher);
         return new ResponseEntity<>(teacher, HttpStatus.CREATED);
     }
 
-    @PatchMapping("/teachers/{id}")
-    public ResponseEntity<Teacher> updateTeacher(@RequestBody Teacher teacher){
-        teacherRepository.save(teacher);
-        return new ResponseEntity<>(teacher, HttpStatus.OK);
+    @PatchMapping(value = "/{id}/{firstName}")
+    public ResponseEntity<Teacher> updateTeacherPartially(@PathVariable Long id, @PathVariable String firstName){
+        Teacher teacher = teacherRepository.findById(id).get();
+        teacher.setFirstName(firstName);
+        return new ResponseEntity<>(teacherRepository.save(teacher), HttpStatus.OK);
     }
 }

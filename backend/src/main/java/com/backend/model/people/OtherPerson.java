@@ -26,7 +26,7 @@ public class OtherPerson extends Person implements Serializable
 
     public OtherPerson(){}
 
-    @JsonIgnore
+//    @JsonIgnore
     @Override
     public long getId() {
         return id;

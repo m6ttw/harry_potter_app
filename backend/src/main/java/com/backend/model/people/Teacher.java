@@ -25,7 +25,7 @@ public class Teacher extends Person implements Serializable {
 
     public Teacher(){}
 
-    @JsonIgnore
+//    @JsonIgnore
     @Override
     public long getId() {
         return id;
