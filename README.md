@@ -1,3 +1,3 @@
 # harry_potter_app
 
-Spring Boot/React app to view details of witches, wizards and others from the Harry Potter series of books
+Spring Boot REST API detailing things from the Harry Potter universe. May add a React frontend later
